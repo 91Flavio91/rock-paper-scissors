@@ -28,3 +28,38 @@ const playRound = function (playerChoice, computerChoice) {
 
     return winner;
 }
+
+
+const game = function (round) {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    const checkWinner = function (winner) {
+        if (winner.slice(0, 7) === 'You win') {
+            playerScore++;
+        }
+        else if (winner.slice(0, 8) === 'You lose') {
+            computerScore++;
+        }
+    }
+
+    checkWinner(round(getPlayerChoice(), getComputerChoice()));
+    checkWinner(round(getPlayerChoice(), getComputerChoice()));
+    checkWinner(round(getPlayerChoice(), getComputerChoice()));
+    checkWinner(round(getPlayerChoice(), getComputerChoice()));
+    checkWinner(round(getPlayerChoice(), getComputerChoice()));
+
+
+    if (playerScore > computerScore) {
+        console.log('YOU WIN!!');
+    }
+    else if (playerScore < computerScore) {
+        console.log('YOU LOSE!!');
+    }
+    else {
+        console.log('IT\'S A TIE!!');
+    }
+}
+
+
+game(playRound);
