@@ -50,25 +50,34 @@ const playRound = function (playerChoice, computerChoice) {
                     playerChoice === 'scissor' && computerChoice === 'rock' ? 'You lose! Rock beats Scissor!' :
                         playerChoice === 'scissor' && computerChoice === 'paper' ? 'You win! Scissor beats Paper' : 'It\'s a tie!';
 
-    checkWinner(winner);
+    checkWinner(winner, playerChoice, computerChoice);
 }
 
-const checkWinner = function (winner) {
+const checkWinner = function (winner, playerChoice, computerChoice) {
     let playerScore = 0;
     let computerScore = 0;
 
     if (winner.slice(0, 7) === 'You win') playerScore++;
     else if (winner.slice(0, 8) === 'You lose') computerScore++;
 
-    showResults(playerScore, computerScore);
+    showResults(playerScore, computerScore, playerChoice, computerChoice);
 }
 
-const showResults = function (currentPlayerScore, currentComputerScore) {
+const showResults = function (currentPlayerScore, currentComputerScore, playerChoice, computerChoice) {
     const playerScoreDiv = document.querySelector('.score .player-score');
     const computerScoreDiv = document.querySelector('.score .computer-score');
 
     if (currentPlayerScore > currentComputerScore) playerScoreDiv.innerText++;
     else if (currentComputerScore > currentPlayerScore) computerScoreDiv.innerText++;
+    showChoice(playerChoice, computerChoice);
+}
+
+const showChoice = function (currentPlayerChoice, currentComputerChoice) {
+    const playerChoiceDiv = document.querySelector('.choices-container .player-choice');
+    const computerChoiceDiv = document.querySelector('.choices-container .computer-choice');
+
+    playerChoiceDiv.innerText = currentPlayerChoice[0].toUpperCase() + currentPlayerChoice.slice(1);
+    computerChoiceDiv.innerText = currentComputerChoice[0].toUpperCase() + currentComputerChoice.slice(1);
 }
 
 
