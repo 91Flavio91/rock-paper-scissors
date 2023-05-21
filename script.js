@@ -59,6 +59,16 @@ const checkWinner = function (winner) {
 
     if (winner.slice(0, 7) === 'You win') playerScore++;
     else if (winner.slice(0, 8) === 'You lose') computerScore++;
+
+    showResults(playerScore, computerScore);
+}
+
+const showResults = function (currentPlayerScore, currentComputerScore) {
+    const playerScoreDiv = document.querySelector('.score .player-score');
+    const computerScoreDiv = document.querySelector('.score .computer-score');
+
+    if (currentPlayerScore > currentComputerScore) playerScoreDiv.innerText++;
+    else if (currentComputerScore > currentPlayerScore) computerScoreDiv.innerText++;
 }
 
 
