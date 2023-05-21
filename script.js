@@ -50,7 +50,15 @@ const playRound = function (playerChoice, computerChoice) {
                     playerChoice === 'scissor' && computerChoice === 'rock' ? 'You lose! Rock beats Scissor!' :
                         playerChoice === 'scissor' && computerChoice === 'paper' ? 'You win! Scissor beats Paper' : 'It\'s a tie!';
 
-    return winner;
+    checkWinner(winner);
+}
+
+const checkWinner = function (winner) {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    if (winner.slice(0, 7) === 'You win') playerScore++;
+    else if (winner.slice(0, 8) === 'You lose') computerScore++;
 }
 
 
