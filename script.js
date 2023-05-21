@@ -93,12 +93,42 @@ const showFinalWinner = function (playerScore, computerScore) {
     else finalWinnerDiv.innerText = 'THE HOUSE WINS!!';
 
     disableButtonsFunctionality();
+    createResetButton();
 }
 
 const disableButtonsFunctionality = function () {
 
     choices.forEach(function (choice) {
         choice.removeEventListener('click', getPlayerChoice);
+    })
+}
+
+const createResetButton = function () {
+    const resetButtonContainerDiv = document.querySelector('.reset-button-container');
+    const resetButtonDiv = document.createElement('div');
+    resetButtonDiv.className = 'reset-button';
+    resetButtonDiv.innerHTML = 'Play again';
+    resetButtonContainerDiv.appendChild(resetButtonDiv);
+    console.log(resetButtonContainerDiv)
+
+    resetButtonDiv.addEventListener('click', function () {
+        const playerScoreDiv = document.querySelector('.score .player-score');
+        const computerScoreDiv = document.querySelector('.score .computer-score');
+        const playerChoiceDiv = document.querySelector('.choices-container .player-choice');
+        const computerChoiceDiv = document.querySelector('.choices-container .computer-choice');
+        const finalWinnerDiv = document.querySelector('.choices-container .winner');
+
+        playerScoreDiv.innerText = '0';
+        computerScoreDiv.innerText = '0';
+        playerChoiceDiv.innerText = '';
+        computerChoiceDiv.innerText = '';
+        finalWinnerDiv.innerText = '';
+
+        this.remove();
+
+        choices.forEach(function (choice) {
+            choice.addEventListener('click', getPlayerChoice);
+        });
     })
 }
 
