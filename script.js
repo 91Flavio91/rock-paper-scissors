@@ -1,4 +1,10 @@
 const choices = document.querySelectorAll('.buttons div');
+const getPlayerChoice = function (e) {
+    const playerChoice = e.target.innerText.toLowerCase();
+    console.log(playerChoice);
+
+    playRound(playerChoice, getComputerChoice());
+}
 
 choices.forEach(function (choice) {
     choice.addEventListener('mouseenter', function () {
@@ -10,6 +16,10 @@ choices.forEach(function (choice) {
         this.classList.remove('button-mouseenter')
     });
 })
+choices.forEach(function (choice) {
+    choice.addEventListener('click', getPlayerChoice);
+});
+
 
 
 // const getPlayerChoice = function () {
