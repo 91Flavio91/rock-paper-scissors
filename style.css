@@ -64,6 +64,10 @@ p {
     color: whitesmoke;
     text-align: center;
 }
+.buttons .button-mouseenter {
+    color: #1f2937;
+    background-color: whitesmoke;
+}
 
 
 
