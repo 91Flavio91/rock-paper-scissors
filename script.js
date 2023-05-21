@@ -1,8 +1,11 @@
-const getPlayerChoice = function () {
-    const playerChoice = prompt('Make your choice: Rock, Paper or Scissors?').toLowerCase();
+const choices = document.querySelectorAll('.buttons div');
 
-    return playerChoice;
-}
+
+// const getPlayerChoice = function () {
+//     const playerChoice = prompt('Make your choice: Rock, Paper or Scissors?').toLowerCase();
+
+//     return playerChoice;
+// }
 
 
 const getComputerChoice = function () {
@@ -30,36 +33,36 @@ const playRound = function (playerChoice, computerChoice) {
 }
 
 
-const game = function (round) {
-    let playerScore = 0;
-    let computerScore = 0;
+// const game = function (round) {
+//     let playerScore = 0;
+//     let computerScore = 0;
 
-    const checkWinner = function (winner) {
-        if (winner.slice(0, 7) === 'You win') {
-            playerScore++;
-        }
-        else if (winner.slice(0, 8) === 'You lose') {
-            computerScore++;
-        }
-    }
+//     const checkWinner = function (winner) {
+//         if (winner.slice(0, 7) === 'You win') {
+//             playerScore++;
+//         }
+//         else if (winner.slice(0, 8) === 'You lose') {
+//             computerScore++;
+//         }
+//     }
 
-    checkWinner(round(getPlayerChoice(), getComputerChoice()));
-    checkWinner(round(getPlayerChoice(), getComputerChoice()));
-    checkWinner(round(getPlayerChoice(), getComputerChoice()));
-    checkWinner(round(getPlayerChoice(), getComputerChoice()));
-    checkWinner(round(getPlayerChoice(), getComputerChoice()));
-
-
-    if (playerScore > computerScore) {
-        console.log('YOU WIN!!');
-    }
-    else if (playerScore < computerScore) {
-        console.log('YOU LOSE!!');
-    }
-    else {
-        console.log('IT\'S A TIE!!');
-    }
-}
+//     checkWinner(round(getPlayerChoice(), getComputerChoice()));
+//     checkWinner(round(getPlayerChoice(), getComputerChoice()));
+//     checkWinner(round(getPlayerChoice(), getComputerChoice()));
+//     checkWinner(round(getPlayerChoice(), getComputerChoice()));
+//     checkWinner(round(getPlayerChoice(), getComputerChoice()));
 
 
-game(playRound);
+//     if (playerScore > computerScore) {
+//         console.log('YOU WIN!!');
+//     }
+//     else if (playerScore < computerScore) {
+//         console.log('YOU LOSE!!');
+//     }
+//     else {
+//         console.log('IT\'S A TIE!!');
+//     }
+// }
+
+
+// game(playRound);
