@@ -70,6 +70,11 @@ const showResults = function (currentPlayerScore, currentComputerScore, playerCh
     if (currentPlayerScore > currentComputerScore) playerScoreDiv.innerText++;
     else if (currentComputerScore > currentPlayerScore) computerScoreDiv.innerText++;
     showChoice(playerChoice, computerChoice);
+
+    if (playerScoreDiv.innerText === '5' || computerScoreDiv.innerText === '5') {
+        showChoice(playerChoice, computerChoice);
+        showFinalWinner(playerScoreDiv.innerText, computerScoreDiv.innerText);
+    }
 }
 
 const showChoice = function (currentPlayerChoice, currentComputerChoice) {
@@ -78,6 +83,14 @@ const showChoice = function (currentPlayerChoice, currentComputerChoice) {
 
     playerChoiceDiv.innerText = currentPlayerChoice[0].toUpperCase() + currentPlayerChoice.slice(1);
     computerChoiceDiv.innerText = currentComputerChoice[0].toUpperCase() + currentComputerChoice.slice(1);
+}
+
+const showFinalWinner = function (playerScore, computerScore) {
+    const finalWinnerDiv = document.querySelector('.choices-container .winner');
+    finalWinnerDiv.className = 'winner';
+
+    if (playerScore > computerScore) finalWinnerDiv.innerText = 'YOU WIN!!'
+    else finalWinnerDiv.innerText = 'THE HOUSE WINS!!';
 }
 
 
