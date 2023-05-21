@@ -91,6 +91,15 @@ const showFinalWinner = function (playerScore, computerScore) {
 
     if (playerScore > computerScore) finalWinnerDiv.innerText = 'YOU WIN!!'
     else finalWinnerDiv.innerText = 'THE HOUSE WINS!!';
+
+    disableButtonsFunctionality();
+}
+
+const disableButtonsFunctionality = function () {
+
+    choices.forEach(function (choice) {
+        choice.removeEventListener('click', getPlayerChoice);
+    })
 }
 
 
