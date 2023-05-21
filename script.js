@@ -1,5 +1,16 @@
 const choices = document.querySelectorAll('.buttons div');
 
+choices.forEach(function (choice) {
+    choice.addEventListener('mouseenter', function () {
+        this.classList.add('button-mouseenter')
+    });
+})
+choices.forEach(function (choice) {
+    choice.addEventListener('mouseleave', function () {
+        this.classList.remove('button-mouseenter')
+    });
+})
+
 
 // const getPlayerChoice = function () {
 //     const playerChoice = prompt('Make your choice: Rock, Paper or Scissors?').toLowerCase();
